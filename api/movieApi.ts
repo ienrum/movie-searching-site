@@ -1,11 +1,11 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
-import {
+import type {
   DetailResponseValue,
   FailedResponse,
   ListResponseValue,
-} from '../src/apiType';
+} from '../src/apiType.d.ts';
 
 const { APIKEY } = process.env;
 
@@ -23,7 +23,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       });
       const data = responseValue as ListResponseValue & Partial<FailedResponse>;
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-      console.log(data);
       res.status(200).json(data);
     } else if (ref === 'detail') {
       const { data: responseValue } = await axios({
@@ -32,7 +31,6 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       });
       const data = responseValue as DetailResponseValue &
         Partial<FailedResponse>;
-      console.log(data);
       res.status(200).json(data);
     }
   } catch (error: any) {

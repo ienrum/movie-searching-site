@@ -6,7 +6,7 @@ import { ref } from 'vue';
 
 import { useRoute } from 'vue-router';
 import MovieDetailContent from '@/components/MovieDetailContent.vue';
-import type { DetailMovie } from '@/apiType';
+import type { DetailMovie } from '@/apiType.d.ts';
 const route = useRoute();
 const detailedMovieStore = useDetailedMovieStore();
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IconImage from './IconImage.vue';
-import { defineProps } from 'vue/dist/vue.js';
+import { defineProps } from 'vue';
 
 defineProps<{ imageName: string }>();
 </script>

@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import axios from 'axios';
 
-import { MovieList } from '../apiType';
+import type { MovieList } from '../apiType.d.ts';
 
 const internalApi = 'http://localhost:5173/api/movieApi';
 

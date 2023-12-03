@@ -10,26 +10,26 @@ export default createRouter({
     {
       path: '/',
       name: 'Home',
-      component: () => HomePage,
+      component: HomePage,
       children: [
         {
           path: 'search/:search',
           name: 'Search',
           meta: { title: 'MovieList' },
-          component: () => MovieList,
+          component: MovieList,
         },
         {
           path: 'movie/:id',
           name: 'MovieDetail',
           meta: { title: 'MovieDetail' },
-          component: () => MovieDetail,
+          component: MovieDetail,
         },
       ],
     },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => NotFound,
+      component: NotFound,
     },
   ],
 });

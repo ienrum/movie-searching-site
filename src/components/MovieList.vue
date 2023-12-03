@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMovieListStore } from '@/stores/movieList';
+import { useMovieListStore } from '@/stores/movieList.ts';
 import MovieCard from '@/components/MovieCard.vue';
 import { useRoute } from 'vue-router';
 import { ref } from 'vue';

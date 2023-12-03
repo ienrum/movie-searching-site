@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import axios from 'axios';
 
-import { DetailMovie } from '../apiType';
+import type { DetailMovie } from '../apiType.d.ts';
 const internalApi = 'http://localhost:5173/api/movieApi';
 
 export const useDetailedMovieStore = defineStore('detailedMovie', () => {
