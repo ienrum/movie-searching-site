@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import type { MovieList } from '../apiType.d.ts';
 
-const internalApi = 'http://localhost:5173/api/movieApi';
+const internalApi = '/api/movieApi';
 
 export const useMovieListStore = defineStore('moveiList', () => {
   const searchingData = ref<MovieList>({} as MovieList);
