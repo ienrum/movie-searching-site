@@ -6,7 +6,9 @@ import { RouterView } from 'vue-router';
 <template>
   <div class="home-page flex min-h-screen flex-col items-center p-5">
     <SearchBar />
-    <Suspense> <RouterView :key="$route.fullPath" /> </Suspense>
+    <Suspense>
+      <KeepAlive><RouterView /></KeepAlive>
+    </Suspense>
     <div
       v-if="$route.name === 'Home'"
       class="flex flex-grow flex-col items-center py-24">

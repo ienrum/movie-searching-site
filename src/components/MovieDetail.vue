@@ -2,31 +2,27 @@
 import { useDetailedMovieStore } from '@/stores/detailedMovie';
 import LoadingCat from '@/components/LoadingCat.vue';
 
-import { ref } from 'vue';
+import { computed } from 'vue';
 
 import { useRoute } from 'vue-router';
 import MovieDetailContent from '@/components/MovieDetailContent.vue';
 import type { DetailMovie } from '@/apiType.d.ts';
+
 const route = useRoute();
 const detailedMovieStore = useDetailedMovieStore();
 
-if (route.params.id)
+if (route.params.id !== detailedMovieStore.searchingData.imdbID) {
   detailedMovieStore.search(route.params.id as string, 'full');
+  detailedMovieStore.$reset();
+}
 
-const movie = ref<DetailMovie | null>(null);
-const failed = ref(false);
-
-detailedMovieStore.$subscribe((_, state) => {
-  if (state.searchingData.Response === 'True')
-    movie.value = state.searchingData;
-  else if (state.searchingData.Response === 'False') failed.value = true;
-});
+const movie = computed<DetailMovie>(() => detailedMovieStore.searchingData);
 </script>
 <template>
   <Transition name="fade">
     <div
       class="movie-detail my-10 flex w-full min-w-min max-w-5xl flex-col items-center rounded-xl border-8 border-border-color bg-content-color p-12"
-      v-if="movie">
+      v-if="movie.Response === 'True'">
       <div class="movie-meta-container flex flex-shrink-0 items-center">
         <img
           :src="movie.Poster.replace('SX300', 'SX500')"
@@ -67,7 +63,7 @@ detailedMovieStore.$subscribe((_, state) => {
         </div>
       </div>
     </div>
-    <div v-else-if="failed">No results found</div>
+    <div v-else-if="movie.Response === 'False'">No results found</div>
     <div v-else><LoadingCat /></div>
   </Transition>
 </template>

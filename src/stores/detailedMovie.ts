@@ -22,8 +22,13 @@ export const useDetailedMovieStore = defineStore('detailedMovie', () => {
     searchingData.value = responseValue;
   }
 
+  function $reset() {
+    searchingData.value = {} as DetailMovie;
+  }
+
   return {
     searchingData,
     search,
+    $reset,
   };
 });
