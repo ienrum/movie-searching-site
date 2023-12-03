@@ -9,6 +9,7 @@ export default {
         'background-color': 'var(--background-color)',
         'border-color': 'var(--border-color)',
         'content-color': 'var(--content-color)',
+        'cat-color': 'var(--cat-color)',
       },
     },
   },

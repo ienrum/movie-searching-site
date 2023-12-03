@@ -110,6 +110,7 @@ body {
   --background-color: #e7dfdd;
   --border-color: #3e3e47;
   --content-color: #b7b0ae;
+  --cat-color: #f2c38b;
   background-color: var(--background-color);
   line-height: 1;
   font-family: 'Roboto Mono', monospace;

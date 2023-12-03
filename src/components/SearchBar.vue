@@ -11,6 +11,7 @@ async function searchMovies() {
     name: 'Search',
     params: { search: search.value },
   });
+  search.value = '';
 }
 </script>
 
@@ -22,6 +23,7 @@ async function searchMovies() {
       class="m-3 max-w-md flex-grow rounded-md border-4 border-border-color p-2"
       type="text"
       placeholder="Search"
+      :value="search"
       @keydown="(e) => (search = (e.target as HTMLInputElement).value)" />
     <button class="px-1" type="submit"><IconImage>Search</IconImage></button>
     <select
