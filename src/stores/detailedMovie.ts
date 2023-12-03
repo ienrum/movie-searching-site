@@ -4,7 +4,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 
 import { DetailMovie } from '../apiType';
-const internalApi = 'http://localhost:3000/api/movieApi';
+const internalApi = 'http://localhost:5173/api/movieApi';
 
 export const useDetailedMovieStore = defineStore('detailedMovie', () => {
   const searchingData = ref<DetailMovie>({} as DetailMovie);
